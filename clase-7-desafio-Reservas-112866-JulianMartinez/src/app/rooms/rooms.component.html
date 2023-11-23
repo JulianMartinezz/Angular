@@ -1,0 +1,20 @@
+<div class="container-fluid">
+    <h2 class="my-2">Available rooms</h2>
+    <div class="cards-container">
+        <div class="card mb-3" *ngFor="let room of roomsList" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img [src]="room.photo" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{room.hotel}}</h5>
+                  <p class="card-text">{{room.description}}</p>
+                  <p class="card-text"><small class="text-muted">Reviews {{room.reviews}}</small></p>
+                  <button class="btn btn-primary" (click)="onSendRoom(room)">Select</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>

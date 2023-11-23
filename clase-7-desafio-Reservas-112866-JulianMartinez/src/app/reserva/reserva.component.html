@@ -1,0 +1,148 @@
+<div class="card my-3">
+    <h4>Booking detail</h4>
+    <div class="row my-3">
+        <div class="col-6 separator">
+            <h6>Your flight</h6>
+            <div class="row">
+                <div class="col-5">
+                    <img [src]="flight.companyLogo" alt="..." />
+                </div>
+                <div class="col-7 d-flex">
+                    <ul class="list-group list-group-flush w-100">
+                        <li>
+                            <p><strong>{{flight.cityOrigin}} to {{flight.cityDestination}}</strong></p>
+                        </li>
+                        <li>
+                            <p><span>{{flight.duration}}</span></p>
+                        </li>
+                        <li>
+                        <i class="bi bi-airplane"></i>
+                        <span>
+                            <p><strong>{{flight.from}}</strong></p>
+                            <p class="secondary">{{flight.cityOrigin}}</p>
+                        </span>
+                        <i class="bi bi-airplane rotate"></i>
+                        <span>
+                            <p><strong>{{flight.to}}</strong></p>
+                            <p class="secondary">{{flight.cityDestination}}</p>
+                        </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+        <h6>Your room</h6>
+        <div class="row">
+            <div class="col-5">
+                <img src="..." alt="..." />
+            </div>
+            <div class="col-7">
+                <p><strong>AMERICAN</strong></p>
+                <p><strong>Single Room</strong></p>
+                <div class="d-flex">
+                    <div class="amenity">
+                    <i class="bi bi-tv"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+<form #Form="ngForm" (submit)="crearReserva()">
+    <div class="form-row">
+      <div class="col-7">
+        <label for="inputPassword4">Fist Name</label>
+        <input #ControlFirtsName="ngModel" type="text" class="form-control" placeholder="" [(ngModel)]="Pay.FirstName">
+      </div>
+      <div class="col">
+        <label for="inputPassword4">Last Name</label>
+        <input #ControlLastName="ngModel" type="text" class="form-control" placeholder="" [(ngModel)]="Pay.LastName">
+      </div>
+      <div class="col">
+        <label for="inputState">Identification Type</label>
+        <select #ControlIdentificationType="ngModel"  id="inputState" class="form-control" [(ngModel)]="Pay.IdentificationType">
+          <option selected>Choose...</option>
+          <option>DNI</option>
+          <option>Passport</option>
+        </select>
+      </div>
+      <div class="col">
+        <label for="inputState">Identification Number</label>
+        <input #ControlIdentificationNumber="ngModel" type="text" class="form-control" placeholder=""  [(ngModel)]="Pay.IdentificationNumber">
+      </div>
+    </div>
+    <div class="form-row">
+        <div class="col-7">
+            <label for="inputPassword4">Addres</label>
+            <input #ControlIdentificationAddress="ngModel" type="text" class="form-control" placeholder="" [(ngModel)]="Pay.Address">
+        </div>
+        <div class="col-7">
+            <label for="inputPassword4">State</label>
+            <input #ControlStrate="ngModel"  type="text" class="form-control" placeholder="" [(ngModel)]="Pay.Strate">
+        </div>
+        <div class="col-7">
+            <label for="inputPassword4">City</label>
+            <input #ControlCity="ngModel" type="text" class="form-control" placeholder="" [(ngModel)]="Pay.City">
+        </div>
+    </div>
+  </form>
+ <div class="container-fluid" >
+    <form #Form="ngForm" (ngSubmit)="crearReserva()">
+        <div class="form-row">
+            <div class="col-7">
+                <label for="inputPassword4">Name on Card</label>
+                <input #ControlNameOnCard="ngModel"  type="text" class="form-control" placeholder="" [(ngModel)]="Pay.NameOnCard">
+              </div>
+            <div class="col">
+              <label for="inputPassword4">Credit card number</label>
+              <input #ControlCreditCardNumber="ngModel"  type="text" class="form-control" placeholder="" [(ngModel)]="Pay.CreditCardNumber">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-row">
+                <div class="col-7">
+                  <label for="inputPassword4">Expiration</label>
+                  <input #ControlExpiration="ngModel"  type="text" class="form-control" placeholder=""
+                  [(ngModel)]="Pay.Expiration">
+                </div>
+                <div class="col">
+                  <label for="inputPassword4">CVV</label>
+                  <input #ControlCVV="ngModel" type="text" class="form-control" placeholder="State"
+                  [(ngModel)]="Pay.Cvv">
+                </div>
+            </div>   
+        </div>
+        <fieldset class="form-group">
+          <div class="row">
+            <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
+            <div class="col-sm-10">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                <label class="form-check-label" for="gridRadios1">
+                  Credit card
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                <label class="form-check-label" for="gridRadios2">
+                  Debit card
+                </label>
+              </div>
+              <div class="form-check disabled">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
+                <label class="form-check-label" for="gridRadios3">
+                  PayPal
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <div class="form-group row">
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Book now</button>
+          </div>
+        </div>
+      </form>
+ </div>

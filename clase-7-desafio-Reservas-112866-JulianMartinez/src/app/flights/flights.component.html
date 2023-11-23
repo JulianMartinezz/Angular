@@ -1,0 +1,14 @@
+<div class="container-fluid">
+    <h2 class="my-2">Available fligths</h2>
+    <div class="cards-container">
+      <div class="card  m-2" *ngFor="let flight of fligthsList">
+        <img [src]="flight.companyLogo" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{flight.cityOrigin}}</h5>
+          <p class="card-text">{{flight.duration}}</p>
+          <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+          <button class="btn btn-primary" (click)="onSendFlight(flight)">Select</button>
+        </div>
+      </div>
+    </div>
+  </div>
