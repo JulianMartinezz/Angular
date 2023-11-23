@@ -1,0 +1,8 @@
+
+<div>
+    <input type="number" [value]="value1" (input)="onEnviarValor1($event)" value="{{ value1 }}">
+    <input type="number" [value]="value2" (input)="onEnviarValor2($event)" value="{{ value2 }}" >
+    <input type="text" name="result" id="result" value="{{ resultButton }}" disabled="true">
+</div>
+<hr>
+<app-componente-hijo [valueInput1]="value1" [valueInput2]="value2" (resultSend)="onReciveResult($event)" (clearSendAll)="onClearScreen($event)"></app-componente-hijo>
