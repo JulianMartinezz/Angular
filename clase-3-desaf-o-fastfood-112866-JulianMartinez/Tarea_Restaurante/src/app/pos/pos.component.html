@@ -1,0 +1,15 @@
+<h3>POS: Point of Sell</h3>
+<br>
+<div>
+    <div>
+        <label for="">Nombre: </label> 
+        <input type="text" [value]="nombre" (input)="onCompletarNombre($event)">
+    </div>
+    <div>
+        <label for="">Pedido: </label> 
+        <input type="text" [value]="descripcion" (input)="onCompletarDesc($event)">
+    </div>
+    <div>
+        <button type="button" (click)="onOrdenar(nombre,descripcion)">Ordenar</button>
+    </div>
+</div>

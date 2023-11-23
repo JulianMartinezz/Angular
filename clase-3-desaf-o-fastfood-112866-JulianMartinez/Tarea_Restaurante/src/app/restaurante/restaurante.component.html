@@ -1,0 +1,10 @@
+<p>Pedidos Ingresados</p>
+<div>
+    <ul>
+        <li *ngFor="let pedido of pedidosIngresados">
+            {{ pedido.numero }} - {{ pedido.nombre }} - {{ pedido.descripcion }}
+        </li>
+    </ul>
+<app-poe [pedidosTerminados]="pedidosCompletados"></app-poe>
+<app-pos (PedidoSend)="onRecivePedido($event)"></app-pos>
+<app-cocina [pedidosPendiente]="pedidosIngresados" (pedidoTerminado)="onRecivePedidoCompletado($event)"></app-cocina> 
