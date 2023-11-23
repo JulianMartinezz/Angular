@@ -1,0 +1,143 @@
+<div class="container">
+  <form [formGroup]="formProduct" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="productNameInput">Nombre</label>
+      <input
+        type="text"
+        class="form-control"
+        id="productNameInput"
+        placeholder="Nombre del Producto"
+        formControlName="controlName"
+        [class.is-invalid]="formProduct.get('controlName')?.invalid && (formProduct.get('controlName')?.dirty || formProduct.get('controlName')?.touched)"
+      />
+      <div
+        *ngIf="formProduct.get('controlName')?.invalid && (formProduct.get('controlName')?.dirty || formProduct.get('controlName')?.touched)">
+        <small class="text-danger" *ngIf="formProduct.get('controlName')?.errors?.['required']">El nombre es
+          requerido.</small>
+        <small class="text-danger" *ngIf="formProduct.get('controlName')?.errors?.['minlength']">El nombre debe tener al
+          menos 5 caracteres.</small>
+          <small class="text-danger" *ngIf="formProduct.get('controlName')?.errors?.['productNameExists']">El nombre del producto ingresado ya existe.</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="productDescriptionInput">Descripción</label>
+      <textarea
+        class="form-control"
+        id="productDescriptionInput"
+        rows="3"
+        formControlName="controlDescription"
+        [class.is-invalid]="formProduct.get('controlDescription')?.invalid && (formProduct.get('controlDescription')?.dirty || formProduct.get('controlDescription')?.touched)"
+      ></textarea>
+      <div
+        *ngIf="formProduct.get('controlDescription')?.invalid && (formProduct.get('controlDescription')?.dirty || formProduct.get('controlDescription')?.touched)">
+        <small class="text-danger" *ngIf="formProduct.get('controlDescription')?.errors?.['required']">La descripción es
+          requerido.</small>
+        <small class="text-danger" *ngIf="formProduct.get('controlDescription')?.errors?.['minlength']">La descripción
+          debe
+          tener al menos 10 caracteres.</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="productPriceInput">Precio</label>
+      <input 
+        type="number"
+        class="form-control" 
+        id="productPriceInput"
+        formControlName="controlPrice"
+        [class.is-invalid]="formProduct.get('controlPrice')?.invalid && (formProduct.get('controlPrice')?.dirty || formProduct.get('controlPrice')?.touched)"
+        />
+        <div
+        *ngIf="formProduct.get('controlPrice')?.invalid && (formProduct.get('controlPrice')?.dirty || formProduct.get('controlPrice')?.touched)">
+        <small class="text-danger" *ngIf="formProduct.get('controlPrice')?.errors?.['required']">El precio es
+          requerido.</small>
+        <small class="text-danger" *ngIf="formProduct.get('controlPrice')?.errors?.['min']">El precio debe ser al menos
+          1.</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="productTypeInput">Tipo de Producto</label>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="productType"
+          id="productType"
+          value="producto"
+          formControlName="controlType"
+        />
+        <label class="form-check-label" for="productTypeInputProducto">Producto</label>
+      </div>
+      <div class="form-check ">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="productType"
+          id="productTypeInputServicio"
+          value="servicio"
+          formControlName="controlType"
+        />
+        <label class="form-check-label" for="productTypeInputServicio">Servicio</label>
+      </div>
+    </div>
+
+    <div class="form-group" >
+      <label for="productTimeFractionInput">Fracción de Tiempo</label>
+      <input 
+        type="number" 
+        class="form-control" 
+        id="productTimeFractionInput" 
+        formControlName="controlTime"
+        [class.is-invalid]="formProduct.get('controlTime')?.invalid && (formProduct.get('controlTime')?.dirty || formProduct.get('controlTime')?.touched)" 
+        />
+        <div
+        *ngIf="formProduct.get('controlTime')?.invalid && (formProduct.get('controlTime')?.dirty || formProduct.get('controlTime')?.touched)">
+        <small class="text-danger" *ngIf="formProduct.get('controlTime')?.errors?.['required']">La fracción de tiempo es
+          requerida.</small>
+        <small class="text-danger" *ngIf="formProduct.get('controlTime')?.errors?.['min']">La fracción de tiempo debe
+          ser al menos 10.</small>
+        <small class="text-danger" *ngIf="formProduct.get('controlTime')?.errors?.['max']">La fracción de tiempo no debe
+          ser más de 60.</small>
+      </div>
+    </div>
+
+    <div class="form-group" >
+      <label for="productLocationName">Nombre Lugar (Inventario)</label>
+      <input
+        type="text"
+        class="form-control"
+        id="productLocationName"
+        placeholder="Nombre"
+        formControlName="controlLocationName"
+        [class.is-invalid]="formProduct.get('controlLocationName')?.invalid && (formProduct.get('controlLocationName')?.dirty || formProduct.get('controlLocationName')?.touched)" 
+      />
+      <div
+        *ngIf="formProduct.get('controlLocationName')?.invalid && (formProduct.get('controlLocationName')?.dirty || formProduct.get('controlLocationName')?.touched)">
+        <small class="text-danger" *ngIf="formProduct.get('controlLocationName')?.errors?.['required']">El nombre del
+          lugar es requerido.</small>
+        <small class="text-danger" *ngIf="formProduct.get('controlLocationName')?.errors?.['minlength']">El nombre del
+          lugar debe tener al menos 5 caracteres.</small>
+      </div>
+    </div>
+    <div class="form-group" >
+      <label for="productLocationCount">Cantidad de Stock (Inventario)</label>
+      <input
+         type="number" 
+         class="form-control" 
+         id="productLocationCount" 
+         formControlName="controlLocationCount"
+         [class.is-invalid]="formProduct.get('controlLocationCount')?.invalid && (formProduct.get('controlLocationCount')?.dirty || formProduct.get('controlLocationCount')?.touched)"
+         />
+         <div
+        *ngIf="formProduct.get('controlLocationCount')?.invalid && (formProduct.get('controlLocationCount')?.dirty || formProduct.get('controlLocationCount')?.touched)">
+        <small class="text-danger" *ngIf="formProduct.get('controlLocationCount')?.errors?.['min']">La cantidad de stock
+          debe ser al menos 1.</small>
+        <small class="text-danger" *ngIf="formProduct.get('controlLocationCount')?.errors?.['max']">La cantidad de stock
+          no debe ser más de 100.</small>
+          <small class="text-danger" *ngIf="formProduct.get('controlLocationCount')?.value == null">No hay inventario cargado.</small>
+      </div>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+</div>
